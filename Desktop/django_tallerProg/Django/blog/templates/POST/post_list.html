@@ -26,6 +26,14 @@
                 <form action="{% url 'editar_post' post.id %}" >
                     <button>Editar</button>
                 </form>
+                <div>
+                    <h2>Comentarios</h2>
+                    {% for comentario in post.comentarios.all %}
+                        <p>Titulo:{{comentario.autor}}</p>
+                        <p>Comentario:{{comentario.contenido}}</p>
+                        <p>Fecha de creacion:{{comentario.fecha_creacion}}</p>
+                    {% endfor %}
+                </div>
             </div>
             {% endfor %}
         </div>

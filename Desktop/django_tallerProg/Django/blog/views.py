@@ -10,8 +10,10 @@ def base(request):
 
 def post_list(request):
     posts=Post.objects.all()
+    comentarios=Comment.objects.all()
     return render(request,"POST/post_list.html",{
-        "posts":posts
+        "posts":posts,
+        "comentarios":comentarios
     }
     )
 def crear_post(request):

@@ -9,7 +9,7 @@ class Post(models.Model):
     actualizado = models.DateTimeField(auto_now=True)
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post, related_name='comentarios', on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, related_name='comentarios', on_delete=models.CASCADE)#Related name seria como el indice !
     autor = models.CharField(max_length=100)
     contenido = models.TextField()
     fecha_creacion = models.DateTimeField(default=timezone.now)
