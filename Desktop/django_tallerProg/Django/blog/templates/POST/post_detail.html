@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detalle del POST ID:{{post.id}}</h1>
+    <div>
+        <h2>Titulo:{{post.titulo}} </h2>
+        <h2>Contenido</h2>
+        <p>{{post.contenido}}</p>
+        <p>Fecha de creacion:{{post.fecha_creacion}}</p>
+        <p>Ultima actualizacion:{{post.actualizado}}</p>
+    </div>
+    <div>
+        <h1>Comentarios</h1>
+        <div>
+            {% for comentario in comentarios %}
+                <p>Titulo:{{comentario.autor}}</p>
+                <p>Comentario:{{comentario.contenido}}</p>
+                <p>Fecha de creacion:{{comentario.fecha_creacion}}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <form action="{% url 'agregarComentario' post.id %}">
+                <button>Agregar comentario</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

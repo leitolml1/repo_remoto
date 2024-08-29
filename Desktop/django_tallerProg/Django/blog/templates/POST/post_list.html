@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div>
+        <form action="{% url 'crear_post' %}">
+            {% csrf_token %}
+            <button>Crear POST</button>
+        </form>
+    </div>
+    <div>
+        <h1>Lista de los POSTS</h1>
+        <div>
+            {% for post in posts %}
+            <h2>{{post.titulo}} </h2>
+            <div>
+                <form action="{% url 'detalle_post' post.id %}" method="GET">
+                    <button>Detalle</button>
+                </form>
+                <form action="{% url 'editar_post' post.id %}" >
+                    <button>Editar</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
